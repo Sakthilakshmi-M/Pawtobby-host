@@ -17,9 +17,9 @@ const login = async (req,res)=>{
 }
 
 const register = async(req,res)=>{
-  const {email,mobile,password} = req.body;
+  const {email,password} = req.body;
   try {
-    const user = await User_details.register(email,mobile,password);
+    const user = await User_details.signUp(email,password);
     const token = createToken(user._id);
     res.status(200).json({email,token});// Consider this afterwards   //////
   }
