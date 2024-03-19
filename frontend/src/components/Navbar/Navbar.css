@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: "Inconsolata", monospace;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+  width: 100vw;
+  overflow: hidden;
+}
+
+.navbar nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar nav ul li {
+  margin-right: 2rem;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.link {
+  color: #000;
+}
+
