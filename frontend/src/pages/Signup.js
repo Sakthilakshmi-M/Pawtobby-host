@@ -15,7 +15,7 @@ const Signup = ()=>{
     else
     {
       setPassError(null);
-      await signup(email,mobile,password,cpassword);
+      await signup(email,password,cpassword);
     }
   }
   return(

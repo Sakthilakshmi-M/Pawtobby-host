@@ -12,7 +12,7 @@ export const useSignUp = ()=>{
     const response = await fetch("https://pawtobby-host-api.vercel.app/api/auth/register",{
       method:'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({email,mobile,password})
+      body: JSON.stringify({email,password})
     });
 
     const json = await response.json()
