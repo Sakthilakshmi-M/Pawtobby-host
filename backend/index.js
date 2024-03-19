@@ -19,7 +19,7 @@ app.use("/api/user",userRoute)
 //   res.sendFile(path.join(__dirname,"./frontend/public/index.html"))
 // })
 app.get("/",(req,res)=>{
-  console.log("Heeeeedkbvlbjl");
+  res.json({msg:"hello world"});
 })
 mongoose.connect(process.env.MONGO_URI)
 .then(
