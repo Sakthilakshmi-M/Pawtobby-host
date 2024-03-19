@@ -8,7 +8,7 @@ export const useLogin = ()=>{
   const login = async(email,password)=>{
     setIsLoading(true);
     setError(null);
-    const response = await fetch("/api/auth/login",{
+    const response = await fetch("https://pawtobby-host-api.vercel.app/api/auth/login",{
       method:'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({email,password})
