@@ -18,7 +18,9 @@ app.use("/api/user",userRoute)
 // app.get("*",function(req,res){
 //   res.sendFile(path.join(__dirname,"./frontend/public/index.html"))
 // })
-
+app.get("/",(req,res)=>{
+  console.log("Heeeeedkbvlbjl");
+})
 mongoose.connect(process.env.MONGO_URI)
 .then(
   app.listen(process.env.PORT,()=>{
