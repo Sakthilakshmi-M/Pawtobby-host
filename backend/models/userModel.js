@@ -1,18 +1,17 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const validator = require("validator");
-
+const validator = require("validator")
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   email:{
-    type: String,
-    required: true,
-    unique: true,
+    type:String,
+    required:true,
+    unique:true
   },
-  password: {
-    type: String,
-    required: true
+  password:{
+    type:String,
+    required:true
   }
 })
 
@@ -45,6 +44,4 @@ userSchema.statics.login = async function(email,password){
   return user;
 }
 
-module.exports = mongoose.model("User_details",userSchema);
-
-
+module.exports = mongoose.model("User",userSchema);

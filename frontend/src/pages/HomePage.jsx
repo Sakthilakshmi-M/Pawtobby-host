@@ -1,11 +1,7 @@
-import HeroSection from "../components/HeroSection/HeroSection.jsx"
+import HeroSection from "../components/HeroSection/HeroSection"
 const Home = () => {
   return ( 
-    <div>
-      {//#f69946
-}
-      <HeroSection/>
-    </div>
+    <HeroSection />
    );
 }
  

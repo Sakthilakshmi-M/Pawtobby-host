@@ -1,24 +1,77 @@
-import Logo from "../../assets/logo.svg"
+import { FaAlignRight } from "react-icons/fa6";
 import {Link} from "react-router-dom";
+import {useLogout} from "../../hooks/useLogout";
+import {useAuthContext} from "../../hooks/useAuthContext";
+import Logo from "../../assets/Home/logo.svg"
+import {useState,useEffect} from "react";
 import "./Navbar.css";
-
 const Navbar = () => {
-  return (  
-    <div class="navbar">
-      <div className="logo">
-        <Link to="/"><img src={Logo} alt="" /></Link>
-      </div>
+  const [mobileNav,setMobileNav] = useState(false);
+  const {user} = useAuthContext();
+  const {logout} = useLogout();
+  const handleClick = ()=>{
+    logout();
+  }
+  const handleNav = ()=>{
+    setMobileNav(!mobileNav)
+  }
+
+  useEffect(()=>{
+    const handleResize = ()=>{
+      if(window.innerWidth>930)
+        setMobileNav(false);
+    }
+
+    window.addEventListener('resize',handleResize);
+
+    return ()=>window.removeEventListener('resize',handleResize)
+  },[])
+  return ( 
+    <>
+    <header>
+      <img src={Logo} alt="Pawtobby Logo" />
       <nav>
         <ul>
-          <li><Link to="/" class="link">Home</Link></li>
-          <li><Link to="/book" class="link">Book Now</Link></li>
-          <li><Link to="/bookings" class="link">Bookings</Link></li>
-          <li><Link to="/contact" class="link">Contact Us</Link></li>
-          <li><Link to="/signin"  class="link">Sign In</Link></li>
+        <li><Link to="/" className="link">Home</Link></li>
+        <li><Link to="/sample" className="link">About Us</Link></li>
+        <li><Link to="/sample" className="link">Bookings</Link></li>
+        <li><Link to="/sample" className="link">Book Now</Link></li>
+        <li><Link to="/sample" className="link">Contact Us</Link></li>
+
+            {!user && (
+              <>
+              <li><Link to="/login" className="link link-border">Login</Link></li>
+              </>
+          )   
+          }
+          {user && 
+                <li><Link onClick={handleClick} className="link">Logout</Link></li>
+          }
         </ul>
-      </nav>
-    </div>
-  );
+        </nav>
+        <FaAlignRight className="hamburger" onClick={handleNav}/>
+      </header>
+      {mobileNav &&  <div className = "mobile-ul">
+        <ul>
+        <li><Link to="/" className="link">Home</Link></li>
+        <li><Link to="/sample" className="link">About Us</Link></li>
+        <li><Link to="/sample" className="link">Bookings</Link></li>
+        <li><Link to="/sample" className="link">Book Now</Link></li>
+        <li><Link to="/sample" className="link">Contact Us</Link></li>
+
+            {!user && (
+              <>
+              <li><Link to="/login" className="link link-border">Login</Link></li>
+              </>
+          )   
+          }
+          {user && 
+                <li><Link onClick={handleClick} className="link">Logout</Link></li>
+          }
+        </ul>
+      </div>}
+    </>
+   );
 }
  
 export default Navbar;

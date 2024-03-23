@@ -1,33 +1,32 @@
-const User_details = require("../models/userModel");
+const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const createToken = (_id)=>{
-  return jwt.sign({_id},process.env.SECRET_KEY,{expiresIn:'3d'});
+  return jwt.sign({_id},process.env.SECRET_KEY,{expiresIn:'3d'})
 }
-const login = async (req,res)=>{
+const register = async(req,res)=>{
   const {email,password} = req.body;
-  try {
-    const user = await User_details.login(email,password);
+  try {    
+    const user = await User.signUp(email,password);
     const token = createToken(user._id);
     res.status(200).json({email,token});
   }
   catch(error)
   {
-    res.status(404).json({error:error.message});
+      res.status(400).json({error:error.message});
   }
 }
 
-const register = async(req,res)=>{
+const login = async (req,res)=>{
   const {email,password} = req.body;
   try {
-    const user = await User_details.signUp(email,password);
+    const user = await User.login(email,password);
     const token = createToken(user._id);
-    res.status(200).json({email,token});// Consider this afterwards   //////
+    res.status(200).json({email,token}); 
   }
-  catch(error) {
+  catch(error)
+  {
     res.status(400).json({error:error.message});
   }
 }
 
-
-
-module.exports = {login,register};
+module.exports = {register,login};
