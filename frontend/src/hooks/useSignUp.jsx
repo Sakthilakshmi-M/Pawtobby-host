@@ -9,7 +9,7 @@ export const useSignup = ()=>{
     setLoading(true);
     setError(null);
 
-    await axios.post("http://localhost:5000/api/auth/register",{email,password})
+    await axios.post("https://pawtobby-host-api.vercel.app/api/auth/register",{email,password})
     .then(response=>{
       localStorage.setItem('user',JSON.stringify(response.data))
       dispatch({type:"LOGIN",payload:response.data})
