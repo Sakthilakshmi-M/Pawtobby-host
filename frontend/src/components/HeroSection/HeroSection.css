@@ -2,7 +2,6 @@
 .hero-div{
   position: relative;
   background: url("../../assets/Home/vv.png");
-  width: 100vw;
   height: 85vh;
   overflow-x: hidden;
   background-position: center;

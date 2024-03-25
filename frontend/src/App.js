@@ -6,7 +6,7 @@ import SignupPage from './pages/SignupPage';
 import HomePage from './pages/HomePage';
 import SamplePage from './pages/SamplePage';
 import Navbar from './components/Navbar/Navbar';
-
+import Footer from './components/Footer/Footer';
 function App() {
   const {user} = useAuthContext();
   return (
@@ -19,6 +19,7 @@ function App() {
           <Route path="/register" element={!user?<SignupPage />:<Navigate to="/"/>} />
           <Route path="/sample" element={<SamplePage />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );
