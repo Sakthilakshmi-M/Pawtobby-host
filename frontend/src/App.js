@@ -4,7 +4,8 @@ import {useAuthContext} from "./hooks/useAuthContext"
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import HomePage from './pages/HomePage';
-import SamplePage from './pages/SamplePage';
+import BookingsPage from './pages/BookingsPage';
+import BookNowPage from "./pages/BookNowPage";
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 function App() {
@@ -14,10 +15,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={!user?<LoginPage />:<Navigate to="/"/>} />
           <Route path="/register" element={!user?<SignupPage />:<Navigate to="/"/>} />
-          <Route path="/sample" element={<SamplePage />} />
+          <Route path="/booknow" element={user?<BookNowPage />:<LoginPage/>} />
+          <Route path="/booking" element={user?<BookingsPage />:<LoginPage/>} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
         <Footer/>
       </BrowserRouter>

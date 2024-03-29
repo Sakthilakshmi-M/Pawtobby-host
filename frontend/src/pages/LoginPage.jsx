@@ -2,7 +2,15 @@ import {useState} from "react";
 import {useLogin} from "../hooks/useLogin"
 import {Link} from "react-router-dom"
 import "./LoginPage.css";
-const LoginPage = () => {
+import Swal from 'sweetalert2'
+const LoginPage = ({swal}) => {
+  if(swal)
+  {
+    Swal.fire({
+      icon: "info",
+      title: "Please login to continue",
+    });
+  }
   const {login,error,loading} = useLogin();
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');

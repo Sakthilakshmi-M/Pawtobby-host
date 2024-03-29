@@ -33,10 +33,10 @@ const Navbar = () => {
       <nav>
         <ul>
         <li><Link to="/" className="link">Home</Link></li>
-        <li><Link to="/sample" className="link">About Us</Link></li>
-        <li><Link to="/sample" className="link">Bookings</Link></li>
-        <li><Link to="/sample" className="link">Book Now</Link></li>
-        <li><Link to="/sample" className="link">Contact Us</Link></li>
+        <li><Link to="/booking" className="link">About Us</Link></li>
+        <li><Link to="/booking" className="link">Bookings</Link></li>
+        <li><Link to="/booknow" className="link">Book Now</Link></li>
+        <li><Link to="/booking" className="link">Contact Us</Link></li>
 
             {!user && (
               <>
@@ -54,10 +54,10 @@ const Navbar = () => {
       {mobileNav &&  <div className = "mobile-ul">
         <ul>
         <li><Link to="/" className="link">Home</Link></li>
-        <li><Link to="/sample" className="link">About Us</Link></li>
-        <li><Link to="/sample" className="link">Bookings</Link></li>
-        <li><Link to="/sample" className="link">Book Now</Link></li>
-        <li><Link to="/sample" className="link">Contact Us</Link></li>
+        <li><Link to="/booking" className="link">About Us</Link></li>
+        <li><Link to="/booking" className="link">Bookings</Link></li>
+        <li><Link to="/booknow" className="link">Book Now</Link></li>
+        <li><Link to="/booking" className="link">Contact Us</Link></li>
 
             {!user && (
               <>
