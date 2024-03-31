@@ -11,6 +11,7 @@ const register = async(req,res)=>{
     const token = createToken(user._id);
     const url = `http://localhost:3000/verify/${user.email}/${token}`
     sendEmail({msg:url,email:email});
+    console.log(url)
     res.status(200).json({msg:"Email Sent Successfully"});
   }
   catch(error)
