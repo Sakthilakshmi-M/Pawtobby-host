@@ -6,6 +6,8 @@ import SignupPage from './pages/SignupPage';
 import HomePage from './pages/HomePage';
 import BookingsPage from './pages/BookingsPage';
 import BookNowPage from "./pages/BookNowPage";
+import AboutUsPage from "./pages/AboutUsPage";
+
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 function App() {
@@ -17,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/login" element={!user?<LoginPage />:<Navigate to="/"/>} />
           <Route path="/register" element={!user?<SignupPage />:<Navigate to="/"/>} />
+          <Route path="/about" element={<AboutUsPage/>} />
           <Route path="/booknow" element={user?<BookNowPage />:<LoginPage/>} />
           <Route path="/booking" element={user?<BookingsPage />:<LoginPage/>} />
           <Route path="/" element={<HomePage />} />
