@@ -1,7 +1,9 @@
 import {useState} from "react";
 import axios from "axios";
 import {useAuthContext} from "./useAuthContext";
+import {useNavigate} from "react-router-dom"
 export const useSignup = ()=>{
+  const navigate = useNavigate();
   const [error,setError] = useState(null)
   const [loading,setLoading] = useState(null)
   const {dispatch} = useAuthContext();
@@ -11,9 +13,10 @@ export const useSignup = ()=>{
 
     await axios.post("https://pawtobby-host-api.vercel.app/api/auth/register",{email,password})
     .then(response=>{
-      localStorage.setItem('user',JSON.stringify(response.data))
-      dispatch({type:"LOGIN",payload:response.data})
+      // localStorage.setItem('user',JSON.stringify(response.data))
+      // dispatch({type:"LOGIN",payload:response.data})
       setLoading(false);
+      navigate("/verify/:email/:token");
     })
     .catch(err=>{
       setLoading(false)

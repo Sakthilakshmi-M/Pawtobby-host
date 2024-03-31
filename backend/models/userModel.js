@@ -12,6 +12,10 @@ const userSchema = new Schema({
   password:{
     type:String,
     required:true
+  },
+  verified:{
+    type:Boolean,
+    default:false
   }
 })
 
@@ -41,6 +45,8 @@ userSchema.statics.login = async function(email,password){
   const match = await bcrypt.compare(password,user.password);
   if(!match)
     throw Error("Incorrect Password");
+  if(user.verified==false)
+    throw Error("Email not verified")
   return user;
 }
 

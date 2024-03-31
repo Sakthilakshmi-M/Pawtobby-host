@@ -13,6 +13,8 @@ const BookingsPage = () => {
     .catch((error)=>console.log(error))
   },[])
   return ( 
+    <>
+    {bookings && bookings.length==0 && <div className="verification">No bookings</div>} 
     <div>
       {bookings && bookings.map((booking,index)=>{
         return (
@@ -22,6 +24,7 @@ const BookingsPage = () => {
         )
       })}
     </div>
+    </>
    );
 }
  

@@ -27,6 +27,7 @@ const BookNowForm = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     console.log(details)
+    console.log(user.token)
     axios.post("https://pawtobby-host-api.vercel.app/api/booking/addBooking",details,{
       headers:{"Authorization":`Bearer ${user.token}`}
     })

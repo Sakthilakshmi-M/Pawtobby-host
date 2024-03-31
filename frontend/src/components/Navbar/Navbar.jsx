@@ -36,7 +36,6 @@ const Navbar = () => {
         <li><Link to="/about" className="link">About Us</Link></li>
         <li><Link to="/booking" className="link">Bookings</Link></li>
         <li><Link to="/booknow" className="link">Book Now</Link></li>
-        <li><Link to="/booking" className="link">Contact Us</Link></li>
 
             {!user && (
               <>
@@ -57,7 +56,6 @@ const Navbar = () => {
         <li><Link to="/about" className="link">About Us</Link></li>
         <li><Link to="/booking" className="link">Bookings</Link></li>
         <li><Link to="/booknow" className="link">Book Now</Link></li>
-        <li><Link to="/booking" className="link">Contact Us</Link></li>
 
             {!user && (
               <>

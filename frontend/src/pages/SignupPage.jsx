@@ -14,7 +14,7 @@ const SignupPage = () => {
     <div className="login-form">
       <form onSubmit={handleSubmit} className="Login">
         <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Email"/>
-        <input type="text" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password"/>
+        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password"/>
         <button disabled={loading} className="submit-btn">Register</button><br />
         {error && 
           <div className="error">

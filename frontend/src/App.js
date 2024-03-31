@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage';
 import BookingsPage from './pages/BookingsPage';
 import BookNowPage from "./pages/BookNowPage";
 import AboutUsPage from "./pages/AboutUsPage";
-
+import VerifyEmailPage from "./pages/VerifyEmailPage";
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 function App() {
@@ -22,7 +22,8 @@ function App() {
           <Route path="/about" element={<AboutUsPage/>} />
           <Route path="/booknow" element={user?<BookNowPage />:<LoginPage/>} />
           <Route path="/booking" element={user?<BookingsPage />:<LoginPage/>} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/verify/:email/:token" element={<VerifyEmailPage/>} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
