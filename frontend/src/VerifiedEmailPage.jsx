@@ -4,7 +4,7 @@ import axios from "axios";
 
 const VerifiedEmailPage = () => {
   const [valid,setValid] = useState(false)
-    axios.get(`https://pawtobby-host-api.vercel.app/api/auth/verify/${param.email}/${param.token}`)
+    axios.get(`http://localhost:5000/api/auth/verify/${param.email}/${param.token}`)
     .then(response=>console.log(response))
     .catch(error=>console.log(error))
   return ( 

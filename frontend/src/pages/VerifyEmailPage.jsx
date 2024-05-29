@@ -9,9 +9,9 @@ const VerifiedEmailPage = () => {
   const {user,dispatch} = useAuthContext();
   const param = useParams()
   const [valid,setValid] = useState(false)
-  console.log(`https://pawtobby-host-api.vercel.app/api/auth/verify/${param.email}/${param.token}`)
+  console.log(`http://localhost:5000/api/auth/verify/${param.email}/${param.token}`)
   useEffect(()=>{
-    axios.get(`https://pawtobby-host-api.vercel.app/api/auth/verify/${param.email}/${param.token}`)
+    axios.get(`http://localhost:5000/api/auth/verify/${param.email}/${param.token}`)
     .then(response=>{
       console.log(response)
       localStorage.setItem('user',JSON.stringify(response.data))

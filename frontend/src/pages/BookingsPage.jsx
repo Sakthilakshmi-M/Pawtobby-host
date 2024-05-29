@@ -6,7 +6,7 @@ const BookingsPage = () => {
   const {user} = useAuthContext();
   const [bookings,setBookings] = useState(null);
   useEffect(()=>{
-    axios.get("https://pawtobby-host-api.vercel.app/api/booking/getBookings",{
+    axios.get("http://localhost:5000/api/booking/getBookings",{
       headers:{"Authorization":`Bearer ${user.token}`}
     })
     .then((response)=>setBookings(response.data.bookings))

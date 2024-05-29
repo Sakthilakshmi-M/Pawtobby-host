@@ -11,7 +11,7 @@ const sendEmail = async ({msg,email})=>{
   
   var mailOptions = {
     from: 'receiverftn@gmail.com',
-    to: email,
+    to: 'sakthilakshmims@gmail.com',
     subject: 'Sending Email using Node.js',
     text: msg
   };

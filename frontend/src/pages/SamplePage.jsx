@@ -5,7 +5,7 @@ const SamplePage = () => {
   // const user = JSON.parse(localStorage.getItem('user'));
   const {user} = useAuthContext()
   const [res,setRes] = useState('');
-  const effect = ()=>{axios.get("https://pawtobby-host-api.vercel.app/api/booking/booking",   {headers: {
+  const effect = ()=>{axios.get("http://localhost:5000/api/booking/booking",   {headers: {
     "Authorization": `Bearer ${user.token}`
     }   
 })
